@@ -1,0 +1,85 @@
+<menu:menu xmlns:menu="http://www.menu1.com/Menu">
+    <coldsnacks>
+
+        <dish id="1">
+            <photo>фото</photo>
+            <title>ассорти рыбное</title>
+            <description>Слабосоленаая форель,семга</description>
+            <portion>100/20/15</portion>
+            <price>10</price>
+        </dish>
+
+        <dish id="2">
+            <photo>фото</photo>
+            <title>Тарталетки с красной икрой</title>
+            <description>Тарталетки с красной икрой</description>
+            <portion>60/50</portion>
+            <price>10</price>
+        </dish>
+
+        <dish id="3">
+            <photo>фото</photo>
+            <title>Закуска по русски</title>
+            <description>Кусочки атлантической скльди с отварным картофелем,луком,лимоном и зеленью</description>
+            <portion>70/50/2/10</portion>
+            <price>10</price>
+        </dish>
+    </coldsnacks>
+
+
+    <hotsnacks>
+
+        <dish id="4">
+            <photo>фото</photo>
+            <title>Лобио с шампиньонами</title>
+            <description>Фасоль с шампиньонами и грецким орехом</description>
+            <portion>150/5</portion>
+            <price>105</price>
+        </dish>
+
+        <dish id="5">
+            <photo>фото</photo>
+            <title>Жульен</title>
+            <description>1.с курицей "/n" 2. с грибами</description>
+            <portion>120/1</portion>
+            <price>1.145 "/n" 2.155</price>
+        </dish>
+
+        <dish id="6">
+            <photo>фото</photo>
+            <title>Ахтамар мясной</title>
+            <description>Колбаса,веетчина,буженина,сыр,запеченные на мангале в лаваше</description>
+            <portion>1 шт</portion>
+            <price>165</price>
+        </dish>
+    </hotsnacks>
+
+
+    <breakfasts>
+
+        <dish id="7">
+            <photo>фото</photo>
+            <title>Глазунья</title>
+            <description>2 яйца(на выбор:ветчина,сыр, помидоры)</description>
+            <portion>150</portion>
+            <price>10</price>
+        </dish>
+
+        <dish id="8">
+            <photo>фото</photo>
+            <title>Омлет</title>
+            <description></description>
+            <portion>100</portion>
+            <price>10</price>
+        </dish>
+
+        <dish id="9">
+            <photo>фото</photo>
+            <title>Блинчикис мясом</title>
+            <description>Жаренные блинчики с мясом</description>
+            <portion>150</portion>
+            <price>10</price>
+        </dish>
+    </breakfasts>
+
+</menu:menu>
