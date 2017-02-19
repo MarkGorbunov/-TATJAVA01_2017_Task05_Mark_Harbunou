@@ -1,9 +1,10 @@
-package gorbunov.epam.parser;
+package uz.Gorbunov.epam.parser;
 
 /**
  * Created by Mark_Harbunou on 2/16/2017.
  */
 public class Food {
+
     private int id;
     private String photo;
     private String title;
@@ -58,5 +59,17 @@ public class Food {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "id=" + id +
+                ", photo='" + photo + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", portion='" + portion + '\'' +
+                ", price='" + price + '\'' +
+                '}';
     }
 }
