@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.menu1.com/Menu"
+        xmlns:tns="http://www.menu1.com/Menu"
+        elementFormDefault="qualified">
+
+    <element name="menu">
+        <complexType >
+            <all>
+                <element name="coldsnacks" type="tns:dishCategory" minOccurs="0" maxOccurs="1"/>
+                <element name="hotsnacks" type="tns:dishCategory" minOccurs="0" maxOccurs="1"/>
+                <element name="breakfasts" type="tns:dishCategory" minOccurs="0" maxOccurs="1"/>
+                <element name="salads" type="tns:dishCategory"  minOccurs="0" maxOccurs="1"/>
+                <element name="soups" type="tns:dishCategory"  minOccurs="0" maxOccurs="1"/>
+                <element name="fishDishes" type="tns:dishCategory"  minOccurs="0" maxOccurs="1"/>
+                <element name="meetDishes" type="tns:dishCategory"  minOccurs="0" maxOccurs="1"/>
+                <element name="grill" type="tns:dishCategory"  minOccurs="0" maxOccurs="1"/>
+                <element name="fromChef" type="tns:dishCategory"  minOccurs="0" maxOccurs="1"/>
+                <element name="attachment" type="tns:dishCategory"  minOccurs="0" maxOccurs="1"/>
+                <element name="desert" type="tns:dishCategory"  minOccurs="0" maxOccurs="1"/>
+            </all>
+        </complexType>
+    </element>
+
+    <complexType name="dishCategory">
+        <sequence minOccurs="0" maxOccurs="unbounded">
+            <element name="dish" type="tns:category"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="category">
+        <sequence minOccurs="1" maxOccurs="1">
+            <element name="photo" type="string"/>
+            <element name="title" type="string" minOccurs="1" maxOccurs="1"/>
+            <element name="description" type="string"/>
+            <element name="portion" type="string"/>
+            <element name="price" type="string"/>
+        </sequence>
+        <attribute name="id" type="int" use="required"/>
+    </complexType>
+</schema>
