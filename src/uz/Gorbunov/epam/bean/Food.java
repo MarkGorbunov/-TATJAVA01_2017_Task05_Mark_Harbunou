@@ -1,4 +1,4 @@
-package uz.Gorbunov.epam.parser;
+package uz.Gorbunov.epam.bean;
 
 /**
  * Created by Mark_Harbunou on 2/16/2017.

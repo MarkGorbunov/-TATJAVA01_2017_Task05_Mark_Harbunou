@@ -1,11 +1,11 @@
-package uz.Gorbunov.epam.parser;
+package uz.Gorbunov.epam.SAX;
 
 
 import org.xml.sax.*;
 import org.xml.sax.helpers.DefaultHandler;
-import org.xml.sax.helpers.XMLReaderFactory;
+import uz.Gorbunov.epam.bean.Food;
+import uz.Gorbunov.epam.bean.MenuTagName;
 
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -154,8 +154,9 @@ public class MenuSaxHandler extends DefaultHandler {
                 foodCategory.put(menuTagName.DESERT,des);
                 foodList.clear();
                 break;
-            case MENU:
+            default:
                 break;
+
         }
     }
 

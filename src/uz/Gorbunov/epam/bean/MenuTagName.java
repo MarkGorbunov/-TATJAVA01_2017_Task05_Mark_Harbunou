@@ -1,4 +1,4 @@
-package uz.Gorbunov.epam.parser;
+package uz.Gorbunov.epam.bean;
 
 /**
  * Created by Mark_Harbunou on 2/16/2017.
@@ -7,4 +7,6 @@ public enum MenuTagName {
     PHOTO, TITLE, DESCRIPTION, PORTION, PRICE , DISH ,
     COLDSNACKS,HOTSNACKS,BREAKFASTS,SALADS,SOUPS,FISHDISHES,
     MEATDISHES,GRILL,FROMCHEF,ATTACHMENT,DESERT,MENU
+
+
 }
