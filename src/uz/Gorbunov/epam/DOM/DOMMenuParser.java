@@ -17,24 +17,35 @@ import java.util.HashMap;
  */
 public class DOMMenuParser {
     public void domParser() throws IOException, SAXException {
-        Food food = null;
+        HashMap<Category, ArrayList<Food>> foodCategory = new HashMap<Category, ArrayList<Food>>();
+
+        for(Category i : Category.values()) {
+            foodCategory.put(i,getfoodList(i));
+        }
+
+        for (HashMap.Entry<Category, ArrayList<Food>> category : foodCategory.entrySet()) {
+            System.out.println(category.getKey());
+            for (Food dish : category.getValue()) {
+                System.out.println(dish.toString());
+            }
+        }
+    }
+
+    private ArrayList<Food> getfoodList(Category category) throws IOException, SAXException {
+        Food food;
         ArrayList<Food> foodList = new ArrayList<Food>();
-        HashMap<MenuTagName, ArrayList<Food>> foodCategory = new HashMap<MenuTagName, ArrayList<Food>>();
 
         DOMParser parser = new DOMParser();
         parser.parse("menu1.xml");
         Document document = parser.getDocument();
         Element root = document.getDocumentElement();
 
+        NodeList categoryNode = root.getElementsByTagName(category.toString().toLowerCase());
+        Element cn = (Element) categoryNode.item(0);
+        NodeList categoryNodeDish = cn.getElementsByTagName(MenuTagName.DISH.toString().toLowerCase());
 
-        NodeList coldSnacks = root.getElementsByTagName(MenuTagName.COLDSNACKS.toString().toLowerCase());
-        Element cl = (Element) coldSnacks.item(0);
-        NodeList coldSnacksDish = cl.getElementsByTagName(MenuTagName.DISH.toString().toLowerCase());
-
-
-        for (int i = 0; i < coldSnacksDish.getLength(); i++) {
-            Element coldSnacksDishElement = (Element) coldSnacksDish.item(i);
-            HashMap<MenuTagName, ArrayList<Food>> coldSnack = new HashMap<MenuTagName, ArrayList<Food>>();
+        for (int i = 0; i < categoryNodeDish.getLength(); i++) {
+            Element coldSnacksDishElement = (Element) categoryNodeDish.item(i);
             food = new Food();
             food.setId(Integer.parseInt(coldSnacksDishElement.getAttribute("id")));
             food.setPhoto(getTagValue(coldSnacksDishElement, MenuTagName.PHOTO.toString().toLowerCase()).getTextContent().trim());
@@ -43,23 +54,9 @@ public class DOMMenuParser {
             food.setPortion(getTagValue(coldSnacksDishElement, MenuTagName.PORTION.toString().toLowerCase()).getTextContent().trim());
             food.setPrice(getTagValue(coldSnacksDishElement, MenuTagName.PRICE.toString().toLowerCase()).getTextContent().trim());
             foodList.add(food);
-            if (i == coldSnacksDish.getLength() - 1) {
-                ArrayList<Food> cold = new ArrayList<Food>();
-                cold.addAll(foodList);
-                foodCategory.put(MenuTagName.COLDSNACKS, cold);
-                foodList.clear();
-            }
         }
-
-
-        for (HashMap.Entry<MenuTagName, ArrayList<Food>> category : foodCategory.entrySet()) {
-            System.out.println(category.getKey());
-            for (Food dish : category.getValue()) {
-                System.out.println(dish.toString());
-            }
-        }
+        return  foodList;
     }
-
 
     private static Element getTagValue(Element element, String tagName) {
         NodeList nlist = element.getElementsByTagName(tagName);
