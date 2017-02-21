@@ -72,4 +72,30 @@ public class Food {
                 ", price='" + price + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Food food = (Food) o;
+
+        if (id != food.id) return false;
+        if (!photo.equals(food.photo)) return false;
+        if (!title.equals(food.title)) return false;
+        if (!description.equals(food.description)) return false;
+        if (!portion.equals(food.portion)) return false;
+        return price.equals(food.price);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + photo.hashCode();
+        result = 31 * result + title.hashCode();
+        result = 31 * result + description.hashCode();
+        result = 31 * result + portion.hashCode();
+        result = 31 * result + price.hashCode();
+        return result;
+    }
 }

@@ -1,4 +1,4 @@
-package uz.Gorbunov.epam.SAX;
+package uz.Gorbunov.epam.sax;
 
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;

@@ -1,4 +1,4 @@
-package uz.Gorbunov.epam.DOM;
+package uz.Gorbunov.epam.dom;
 
 import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 import org.w3c.dom.Document;
@@ -7,6 +7,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import uz.Gorbunov.epam.bean.Food;
 import uz.Gorbunov.epam.bean.MenuTagName;
+import uz.Gorbunov.epam.dom.exception.DOMException;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.HashMap;
  * Created by Mark_Harbunou on 2/20/2017.
  */
 public class DOMMenuParser {
-    public void domParser() throws IOException, SAXException {
+    public void domParser() throws DOMException {
         HashMap<Category, ArrayList<Food>> foodCategory = new HashMap<Category, ArrayList<Food>>();
 
         for(Category i : Category.values()) {
@@ -31,12 +32,19 @@ public class DOMMenuParser {
         }
     }
 
-    private ArrayList<Food> getfoodList(Category category) throws IOException, SAXException {
+
+    private ArrayList<Food> getfoodList(Category category) throws DOMException {
         Food food;
         ArrayList<Food> foodList = new ArrayList<Food>();
 
         DOMParser parser = new DOMParser();
-        parser.parse("menu1.xml");
+        try {
+            parser.parse("menu1.xml");
+        } catch (SAXException e) {
+           throw  new DOMException("smth wrong with DOM parser",e);
+        } catch (IOException e) {
+            throw  new DOMException("smth wrong with IOE in DOM parser",e);
+        }
         Document document = parser.getDocument();
         Element root = document.getDocumentElement();
 
